@@ -1,14 +1,15 @@
 use is_odd::IsOdd;
 
 pub trait IsEven {
-    fn is_the_number_even(&self) -> bool;
+    fn is_even(&self) -> bool;
 }
 
 macro_rules! prim_impl {
     ($($t:tt)*) => {
         $(
             impl IsEven for $t {
-                fn is_the_number_even(&self) -> bool {
+                fn is_even(&self) -> bool {
+					println!("Checking for evenness");
                     !self.is_odd()
                 }
             }
